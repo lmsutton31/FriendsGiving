@@ -6,12 +6,20 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct FriendsGivingApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-        }
+                    GuestListView()
+                }
+                .modelContainer(for: Guest.self)
+    }
+    
+    //will allow us to find where our simulator data is saved on our mac
+    init(){
+        print(URL.applicationSupportDirectory.path(percentEncoded: false))
     }
 }
+
