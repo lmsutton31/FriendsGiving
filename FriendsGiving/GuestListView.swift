@@ -24,6 +24,15 @@ struct GuestListView: View {
                         Text(guest.name)
                             .font(.title)
                     }
+                    .swipeActions {
+                        Button("", systemImage: "trash", role: .destructive) {
+                            modelContext.delete(guest)
+                            guard let _ = try? modelContext.save() else {
+                                print("ERROR: Could not delete with swipe.")
+                                return
+                            }
+                        }
+                    }
                 }
             }
             .listStyle(.plain)

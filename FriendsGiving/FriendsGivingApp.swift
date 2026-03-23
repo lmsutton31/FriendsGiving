@@ -12,9 +12,10 @@ import SwiftData
 struct FriendsGivingApp: App {
     var body: some Scene {
         WindowGroup {
-                    GuestListView()
-                }
+            GuestListView()
+            
                 .modelContainer(for: Guest.self)
+        }
     }
     
     //will allow us to find where our simulator data is saved on our mac
